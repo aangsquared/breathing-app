@@ -1,0 +1,62 @@
+.breathing-container {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  
+  .breathing-circle {
+    width: 16rem;
+    height: 16rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+  
+  .breathing-circle:focus {
+    outline: none;
+  }
+  
+  .breathing-circle.active {
+    cursor: default;
+  }
+  
+  .breathing-circle:not(.active):hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+  
+  /* Animation states */
+  .breathing-circle.ready {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  
+  .breathing-circle.inhale {
+    transform: scale(1.5);
+    opacity: 1;
+    transition: all 1s ease;
+  }
+  
+  .breathing-circle.hold {
+    transform: scale(1.5);
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+  
+  .breathing-circle.exhale {
+    transform: scale(1);
+    opacity: 0.8;
+    transition: all 1s ease;
+  }
+  
+  .phase-instruction {
+    position: absolute;
+    bottom: -4rem;
+    width: 100%;
+    text-align: center;
+    color: #64748b;
+    font-size: 0.875rem;
+  }
