@@ -8,7 +8,7 @@ describe("BreathingCircle", () => {
     name: "Box Breathing",
     description: "Test description",
     pattern: { inhale: 4, hold1: 4, exhale: 4, hold2: 4 },
-    colorClass: "bg-blue-500",
+    color: "#3b82f6",
   }
 
   const mockOnStart = jest.fn()
@@ -25,7 +25,9 @@ describe("BreathingCircle", () => {
     )
 
     expect(screen.getByText("Press to start")).toBeInTheDocument()
-    expect(screen.getByRole("button")).toHaveClass("bg-blue-500")
+    expect(screen.getByRole("button")).toHaveStyle(`
+      backgroundColor: #3b82f6;
+    `)
     expect(screen.getByRole("button")).not.toBeDisabled()
   })
 

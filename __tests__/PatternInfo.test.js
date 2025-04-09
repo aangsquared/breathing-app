@@ -6,7 +6,6 @@ describe("PatternInfo", () => {
   const samplePattern = { inhale: 4, hold1: 4, exhale: 4, hold2: 4 }
   test("renders all phases with the correct values", () => {
     render(<PatternInfo pattern={samplePattern} />)
-    screen.debug()
 
     expect(screen.getAllByText("4s")).toHaveLength(4)
     expect(screen.getByText("Inhale")).toBeInTheDocument()
