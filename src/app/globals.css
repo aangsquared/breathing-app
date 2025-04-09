@@ -1,26 +1,285 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Main layout styles */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f8fafc;
+  padding: 1.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.text-center {
+  text-align: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.heading-primary {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.description-text {
+  color: #64748b;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mr-4 {
+  margin-right: 1rem;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Technique card grid */
+.technique-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  flex-grow: 1;
+}
+
+@media (min-width: 768px) {
+  .technique-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Technique card */
+.technique-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.technique-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.technique-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.technique-icon-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.technique-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.technique-description {
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+/* Header navigation */
+.header-nav {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  color: #64748b;
+}
+
+.back-button:hover {
+  color: #1e293b;
+}
+
+/* Main content area */
+.content-area {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Breathing circle */
+.breathing-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.breathing-circle {
+  width: 16rem;
+  height: 16rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.breathing-circle:focus {
+  outline: none;
+}
+
+.breathing-circle.active {
+  cursor: default;
+}
+
+.breathing-circle:not(.active):hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+/* Animation states */
+.breathing-circle.ready {
+  transform: scale(1);
+  opacity: 0.8;
+}
+
+.breathing-circle.inhale {
+  transform: scale(1.5);
+  opacity: 1;
+  transition: all 1s ease;
+}
+
+.breathing-circle.hold {
+  transform: scale(1.5);
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+.breathing-circle.exhale {
+  transform: scale(1);
+  opacity: 0.8;
+  transition: all 1s ease;
+}
+
+.phase-instruction {
+  position: absolute;
+  bottom: -4rem;
+  width: 100%;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+/* Controls */
+.controls-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cycle-counter {
+  color: #64748b;
+  margin-right: 1rem;
+}
+
+.cycle-number {
+  font-weight: 600;
+}
+
+.stop-button {
+  display: flex;
+  align-items: center;
+  background-color: #fee2e2;
+  color: #dc2626;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+}
+
+.stop-button:hover {
+  background-color: #fecaca;
+}
+
+.reset-button {
+  display: flex;
+  align-items: center;
+  background-color: #f1f5f9;
+  color: #64748b;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+}
+
+.reset-button:hover {
+  background-color: #e2e8f0;
+}
+
+/* Pattern info */
+.pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 28rem;
+  margin-top: 1rem;
+}
+
+.pattern-item {
+  background-color: #f1f5f9;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.pattern-label {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.pattern-value {
+  font-weight: 700;
+}
+
+/* Technique colors */
+.color-blue {
+  background-color: #3b82f6;
+}
+
+.color-purple {
+  background-color: #a855f7;
+}
+
+.color-green {
+  background-color: #22c55e;
+}
+
+.color-amber {
+  background-color: #f59e0b;
 }

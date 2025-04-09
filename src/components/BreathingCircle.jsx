@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 export default function BreathingCircle({ technique, isActive, phase, instructionText, onStart }) {
     
@@ -23,8 +23,12 @@ export default function BreathingCircle({ technique, isActive, phase, instructio
         <button
           onClick={onStart}
           disabled={isActive}
-          className={`breathing-circle ${technique.colorClass} ${getAnimationClasses()} ${isActive ? 'active' : ''}`}
+          style={{
+            backgroundColor: technique.color, // Dynamically set the background color
+          }}
+          className={`breathing-circle ${technique.color} ${getAnimationClasses()} ${isActive ? 'active' : ''}`}
         >
+        
           {instructionText}
         </button>
         
