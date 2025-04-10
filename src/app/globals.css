@@ -15,6 +15,7 @@
   font-size: 1.875rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  font-family: sans-serif;
 }
 
 .description-text {
@@ -178,7 +179,13 @@
   transition: all 1s ease;
 }
 
-.breathing-circle.hold {
+.breathing-circle.hold1 {
+  transform: scale(1.5);
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+.breathing-circle.hold2 {
   transform: scale(1.5);
   opacity: 1;
   transition: all 0.5s ease;
@@ -191,8 +198,8 @@
 }
 
 .phase-instruction {
-  position: absolute;
-  bottom: -4rem;
+  position: inherit;
+  bottom: -2rem;
   width: 100%;
   text-align: center;
   color: #64748b;
